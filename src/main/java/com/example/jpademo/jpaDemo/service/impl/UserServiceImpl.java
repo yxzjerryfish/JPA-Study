@@ -4,9 +4,9 @@ import com.example.jpademo.jpaDemo.dto.User;
 import com.example.jpademo.jpaDemo.repository.UserRepository;
 import com.example.jpademo.jpaDemo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.ObjectUtils;
 
 /**
  * @author Fish
@@ -14,6 +14,7 @@ import org.springframework.util.ObjectUtils;
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -27,5 +28,11 @@ public class UserServiceImpl implements UserService {
                     .email("a@a.com")
                     .build());
         }
+    }
+
+    public void printAllUser() {
+        userRepository.findAll().forEach(
+                user -> log.info(user.toString())
+        );
     }
 }

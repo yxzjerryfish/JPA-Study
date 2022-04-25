@@ -13,4 +13,9 @@ public interface UserService {
      * 创建默认用户
      */
     void initMainUser();
+
+    /**
+     * 打印全部User
+     */
+    void printAllUser();
 }
