@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/1")
-    @Transactional(rollbackFor = Exception.class)
     public String sayHello() {
         return "Hello Spring!";
     }
