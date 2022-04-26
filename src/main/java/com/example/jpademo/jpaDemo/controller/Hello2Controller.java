@@ -23,10 +23,6 @@ public class Hello2Controller {
     @GetMapping("/2")
     @Transactional(rollbackFor = Exception.class)
     public String sayHello() throws InterruptedException {
-        Runnable runnable1 = helloRunnable();
-        Thread.sleep(20* 1000);
-        entityService.print();
-        userService.printAllUser();
         return "Hello Spring!";
     }
 
